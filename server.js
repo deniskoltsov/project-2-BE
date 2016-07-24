@@ -229,6 +229,6 @@ app.delete('/player/:id', function(request, response) {
 }); // end delete
 
 /* tell our app where to listen */
-app.listen(js PORT = process.env.PORT || 80, function() {
+app.listen(PORT = process.env.PORT || 80, function() {
   console.log('listen to events on a "port".')
 });
