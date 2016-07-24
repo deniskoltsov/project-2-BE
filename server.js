@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({
 
 var MongoClient = mongodb.MongoClient;
 var mongoUrl = 'mongodb://heroku_170lq4bt:lcub1n65o4c2tukinjm5ih6i0e@ds029715.mlab.com:29715/heroku_170lq4bt';
+// var mongoUrl = 'mongodb://localhost:27017/nba_db'
 var timeStamp = Date.now();
 
 var NBA_API_KEY = process.env.NBA_API_KEY;
@@ -229,6 +230,5 @@ app.delete('player/:id', function(request, response) {
 }); // end delete
 
 /* tell our app where to listen */
-app.listen(PORT = process.env.PORT || 80, function() {
-  console.log('listen to events on a "port".')
-});
+PORT = process.env.PORT || 80;
+app.listen(PORT, function(){ console.log('listening to events on a "port".') }); 
