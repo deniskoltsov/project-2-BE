@@ -33,7 +33,7 @@ app.get('/', function(request, response) {
 
 
 /* player endpoint welcome page */
-app.get('/player', function(req, response) {
+app.get('player', function(req, response) {
   // sends to FE & displays at localhost:3000
   response.json({
     "description": "player endpoint"
@@ -43,7 +43,7 @@ app.get('/player', function(req, response) {
 }); // end welcome
 
 //nba team search
-app.post('/team', function(req, res) {
+app.post('team', function(req, res) {
   var baseUrl = "http://api.sportradar.us/";
   var nbaTeamQueryString = 'nba-t3/teams/';
   var apiKeyQueryString = "?api_key=";
@@ -62,7 +62,7 @@ app.post('/team', function(req, res) {
 });
 
 //PLAYER STATS
-app.post('/player', function(req, res) {
+app.post('player', function(req, res) {
   var baseUrl = "http://api.sportradar.us/nba-t3/players/";
   var apiKeyQueryString = "/profile.json?api_key=";
   var queryString = req.body.queryString;
@@ -81,7 +81,7 @@ app.post('/player', function(req, res) {
 });
 
 //GET SAVED PLAYERS
-app.get('/player/new', function(request, response){
+app.get('player/new', function(request, response){
   MongoClient.connect(mongoUrl, function (err, db) {
     var playerCollection = db.collection('players');
     if (err) {
@@ -109,7 +109,7 @@ app.get('/player/new', function(request, response){
 }); // end get all
 
 //INDIVIDUAL NBA TEAM STATS
-app.post('/team-stats', function(req, res) {
+app.post('team-stats', function(req, res) {
   var baseUrl = "http://api.sportradar.us/";
   var nbaTeamQueryString = 'nba-t3/seasontd/2015/REG/teams/';
   var apiKeyQueryString = "?api_key=";
@@ -131,7 +131,7 @@ app.post('/team-stats', function(req, res) {
 });
 
 //get NBA STANDINGS
-app.post('/standing', function(req, res) {
+app.post('standing', function(req, res) {
   var baseUrl = "http://api.sportradar.us/";
   var apiKeyQueryString = "?api_key=";
   var nbaTeamQueryString = 'nba-t3/';
@@ -150,7 +150,7 @@ app.post('/standing', function(req, res) {
 }); // end post request
 
 //fav player save
-app.post('/player/new', function(request, response){
+app.post('player/new', function(request, response){
   // response.json({"description":"add new"});
   console.log("request.body", request.body);
 
@@ -184,7 +184,7 @@ app.post('/player/new', function(request, response){
 }); // end add new
 
 /* delete */
-app.delete('/player/:id', function(request, response) {
+app.delete('player/:id', function(request, response) {
   // response.json({"description":"delete by name"});
 
   console.log("request.body:", request.body);
